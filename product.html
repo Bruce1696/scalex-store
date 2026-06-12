@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail — ScalexStore</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="product.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Scalex<span>Store</span></a>
+      <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="bc-sep">›</span>
+        <span id="bcCategory">…</span>
+        <span class="bc-sep">›</span>
+        <span id="bcTitle">…</span>
+      </nav>
+      <button class="cart-toggle" id="cartToggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Cart
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Error state -->
+  <div class="pd-error" id="pdError" hidden>
+    <p>⚠ Could not load product. <a href="index.html">Go back to store</a></p>
+  </div>
+
+  <!-- Product Detail -->
+  <main class="pd-container" id="pdContainer">
+
+    <a href="index.html" class="back-btn">← Back to store</a>
+
+    <div class="pd-layout">
+
+      <!-- Left: image -->
+      <div class="pd-image-col">
+        <div class="pd-img-wrap">
+          <img id="pdImage" src="" alt="" />
+        </div>
+      </div>
+
+      <!-- Right: info -->
+      <div class="pd-info-col">
+
+        <div class="pd-top-row">
+          <span class="pd-category-badge" id="pdCategory"></span>
+          <span class="pd-id-badge" id="pdIdBadge"></span>
+        </div>
+
+        <h1 class="pd-title" id="pdTitle"></h1>
+
+        <div class="pd-rating-row" id="pdRatingRow"></div>
+
+        <p class="pd-description" id="pdDescription"></p>
+
+        <p class="pd-price" id="pdPrice"></p>
+
+        <button class="pd-add-btn" id="pdAddBtn">Add to Cart</button>
+
+        <!-- Metadata table -->
+        <section class="pd-meta-section">
+          <h2 class="pd-meta-heading">Product Metadata</h2>
+          <div class="pd-meta-grid" id="pdMetaGrid"></div>
+        </section>
+
+        <!-- Raw JSON -->
+        <section class="pd-json-section">
+          <button class="json-toggle" id="jsonToggle" aria-expanded="false">
+            <span>View raw API response</span>
+            <svg class="json-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <pre class="json-block" id="jsonBlock" hidden></pre>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Cart Sidebar -->
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="close-cart" id="closeCart">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer" id="cartFooter" hidden>
+      <div class="cart-total">
+        Total: <strong id="cartTotal">$0.00</strong>
+      </div>
+      <button class="checkout-btn">Checkout</button>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <footer class="footer">
+    <p>&copy; 2026 ScalexStore</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="product.js"></script>
+</body>
+</html>
