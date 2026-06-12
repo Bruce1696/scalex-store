@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scalex Store</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">Scalex<span>Store</span></a>
+      <nav class="nav-categories" id="navCategories">
+        <button class="cat-btn active" data-cat="all">All</button>
+      </nav>
+      <button class="cart-toggle" id="cartToggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Cart
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Discover Products You'll Love</h1>
+      <p>Curated picks across fashion, electronics, and more — delivered fast.</p>
+    </div>
+    <div class="hero-search">
+      <input type="text" id="searchInput" placeholder="Search products…" />
+      <button id="searchBtn">Search</button>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="toolbar">
+      <p class="result-count" id="resultCount"></p>
+      <select id="sortSelect">
+        <option value="default">Sort: Default</option>
+        <option value="price-asc">Price: Low → High</option>
+        <option value="price-desc">Price: High → Low</option>
+        <option value="rating">Top Rated</option>
+      </select>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      <!-- Skeleton placeholders -->
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+    </div>
+
+    <p class="error-msg" id="errorMsg" hidden>
+      Failed to load products. Please check your connection and try again.
+    </p>
+  </main>
+
+  <!-- Cart Sidebar -->
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="close-cart" id="closeCart">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer" id="cartFooter" hidden>
+      <div class="cart-total">
+        Total: <strong id="cartTotal">$0.00</strong>
+      </div>
+      <button class="checkout-btn">Checkout</button>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <footer class="footer">
+    <p>&copy; 2026 ScalexStore · Powered by <a href="https://fakestoreapi.com" target="_blank">FakeStore API</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
