@@ -48,14 +48,14 @@ const site = {};
 if (liveUrl) {
   const base = liveUrl.replace(/\/[^/]*$/, '');
   site.index = await fetchSafe(liveUrl);
-  site.product = await fetchSafe(`${base}/product.html?id=10`);
+  site.product = await fetchSafe(`${base}/product-10.html`);
   site.robots = await fetchSafe(`${base}/robots.txt`);
   site.sitemap = await fetchSafe(`${base}/sitemap.xml`);
   site.llms = await fetchSafe(`${base}/llms.txt`);
   site.feed = await fetchSafe(`${base}/products.json`);
 } else {
   site.index = await readSafe('index.html');
-  site.product = await readSafe('product.html');
+  site.product = await readSafe('product-10.html'); // a representative static product page
   site.robots = await readSafe('robots.txt');
   site.sitemap = await readSafe('sitemap.xml');
   site.llms = await readSafe('llms.txt');
@@ -118,6 +118,10 @@ const checks = [
     agents: [A.gem],
     test: () => has(site.index, '"Organization"') || has(site.index, '"WebSite"'),
     fix: 'Add an Organization or WebSite JSON-LD node.' },
+  { group: 'Structured Data', label: 'Product page JSON-LD with brand', weight: 2,
+    agents: [A.gpt, A.gem, A.shop],
+    test: () => has(site.product, 'application/ld+json') && has(site.product, '"Brand"'),
+    fix: 'Embed per-product JSON-LD (with brand) on each product page.' },
 
   // ── SEO basics ─────────────────────────────────────────────
   { group: 'SEO Basics', label: 'Meta description', weight: 1,
@@ -146,6 +150,10 @@ const checks = [
     agents: [A.gpt, A.gem, A.plx, A.shop],
     test: () => feed.length > 0 && site.product.includes(feed.find((p) => p.id === 10)?.title || '###'),
     fix: 'Pre-render product pages or generate static product-N.html files.' },
+  { group: 'Content Rendering', label: 'Variants/sizes visible on product page', weight: 2,
+    agents: [A.gpt, A.shop],
+    test: () => /US 1[012]|US [789]/.test(site.product),
+    fix: 'Render available sizes as text/buttons in the static product page.' },
 
   // ── Feed quality (Google Shopping / ACP fields) ────────────
   { group: 'Feed Quality', label: 'Products have brand', weight: 1,

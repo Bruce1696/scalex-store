@@ -85,7 +85,7 @@ function renderProducts() {
     const id = Number(card.dataset.id);
     card.addEventListener('click', e => {
       if (e.target.closest('.add-to-cart')) return;
-      window.location.href = `product.html?id=${id}`;
+      window.location.href = `product-${id}.html`;
     });
     card.querySelector('.add-to-cart').addEventListener('click', e => {
       e.stopPropagation();

@@ -290,3 +290,15 @@
   .breadcrumb   { display: none; }
   .meta-row     { grid-template-columns: 110px 1fr; }
 }
+
+/* ── Static product page: brand, stock, size selector ── */
+.pd-brand { color: var(--muted); margin: 2px 0 10px; font-size: 0.95rem; }
+.pd-stock { color: #16a34a; font-weight: 600; margin: 8px 0 4px; font-size: 0.9rem; }
+.pd-sizes { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.size-btn {
+  min-width: 56px; padding: 8px 12px; border: 1.5px solid #d4d4d8;
+  background: #fff; border-radius: 8px; cursor: pointer; font-size: 0.9rem;
+  transition: border-color .15s, background .15s;
+}
+.size-btn:hover { border-color: #6366f1; }
+.size-btn.active { border-color: #4f46e5; background: #eef2ff; color: #4f46e5; font-weight: 600; }
