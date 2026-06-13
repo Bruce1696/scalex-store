@@ -1,6 +1,11 @@
 // ── State ──────────────────────────────────────────────
-let baseProducts     = [...PRODUCTS];
-let filteredProducts = [...PRODUCTS];
+// Guard the catalog: if data.js is slow, blocked, or fails to load, fall
+// back to an empty array so the app never throws — and so the static HTML
+// product grid (read by crawlers AND JS-rendering agents like ChatGPT)
+// survives untouched instead of being wiped to "No products found".
+const CATALOG = (typeof PRODUCTS !== 'undefined' && Array.isArray(PRODUCTS)) ? PRODUCTS : [];
+let baseProducts     = [...CATALOG];
+let filteredProducts = [...CATALOG];
 let cart = JSON.parse(localStorage.getItem('scalex_cart') || '[]');
 let activeCategory = 'all';
 let searchQuery = '';
@@ -38,7 +43,7 @@ function buildCategories() {
 function setCategory(cat) {
   activeCategory = cat;
   document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
-  baseProducts = cat === 'all' ? [...PRODUCTS] : PRODUCTS.filter(p => p.category === cat);
+  baseProducts = cat === 'all' ? [...CATALOG] : CATALOG.filter(p => p.category === cat);
   applyFilters();
 }
 
@@ -142,7 +147,7 @@ overlay.addEventListener('click', closeCartSidebar);
 
 // ── Cart Logic ─────────────────────────────────────────
 function addToCart(id, btn) {
-  const product = PRODUCTS.find(p => p.id === id);
+  const product = CATALOG.find(p => p.id === id);
   if (!product) return;
 
   const existing = cart.find(i => i.id === id);
@@ -233,6 +238,18 @@ function escHtml(str) {
 }
 
 // ── Init ───────────────────────────────────────────────
+// Progressive enhancement: only let JS rebuild the grid when the catalog
+// actually loaded. If it didn't (slow/blocked/failed data.js), leave the
+// crawler-friendly static catalog in the HTML untouched — never replace it
+// with an empty/error state that an agent might read.
 buildCategories();
-renderProducts();
+try {
+  if (filteredProducts.length) {
+    renderProducts();
+  } else if (resultCount) {
+    resultCount.textContent = `${productGrid.querySelectorAll('.product-card').length} products`;
+  }
+} catch (e) {
+  /* keep the static grid as-is */
+}
 updateCartUI();
