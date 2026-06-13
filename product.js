@@ -39,6 +39,10 @@ if (!p) {
 function render(p) {
   document.title = `${p.title} — ScalexStore`;
 
+  // SEO: inject per-product structured data + meta so crawlers and AI
+  // agents can read this specific product, not just the page shell.
+  injectProductSeo(p);
+
   // Breadcrumb
   bcCategory.textContent = p.category;
   bcTitle.textContent = p.title.length > 40 ? p.title.slice(0, 40) + '…' : p.title;
@@ -101,6 +105,69 @@ function render(p) {
 function renderStars(rate) {
   const full = Math.round(rate);
   return '★'.repeat(full) + '☆'.repeat(5 - full);
+}
+
+// ── SEO: per-product structured data + meta ────────────
+function injectProductSeo(p) {
+  const SITE = 'https://dailmyshop.netlify.app';
+  const url = `${SITE}/product.html?id=${p.id}`;
+
+  const ld = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    '@id': url,
+    name: p.title,
+    description: p.description,
+    image: p.image,
+    category: p.category,
+    sku: `SKU-${p.id}`,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: p.rating.rate,
+      reviewCount: p.rating.count,
+    },
+    offers: {
+      '@type': 'Offer',
+      price: p.price.toFixed(2),
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      url,
+    },
+  };
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(ld, null, 2);
+  document.head.appendChild(script);
+
+  setMeta('name', 'description', p.description.slice(0, 155));
+  setMeta('property', 'og:title', p.title);
+  setMeta('property', 'og:description', p.description.slice(0, 155));
+  setMeta('property', 'og:image', p.image);
+  setMeta('property', 'og:url', url);
+  setMeta('property', 'product:price:amount', p.price.toFixed(2));
+  setMeta('property', 'product:price:currency', 'USD');
+  setCanonical(url);
+}
+
+function setMeta(attr, key, value) {
+  let el = document.head.querySelector(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', value);
+}
+
+function setCanonical(url) {
+  let el = document.head.querySelector('link[rel="canonical"]');
+  if (!el) {
+    el = document.createElement('link');
+    el.rel = 'canonical';
+    document.head.appendChild(el);
+  }
+  el.href = url;
 }
 
 // ── Cart logic ─────────────────────────────────────────
