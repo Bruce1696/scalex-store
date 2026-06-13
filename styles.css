@@ -640,3 +640,21 @@ body {
   .modal-inner { flex-direction: column; }
   .modal-img-wrap { flex: none; width: 100%; }
 }
+
+/* ── Static catalog cards (SEO/crawler fallback, pre-JS paint) ── */
+.card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 6px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
