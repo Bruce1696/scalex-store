@@ -1,0 +1,83 @@
+{
+  "id": 5,
+  "title": "Vans Old Skool",
+  "price": 69.99,
+  "description": "The Vans Old Skool was the first shoe to feature the iconic Vans side stripe — and it's been a skate and street staple ever since. The durable canvas and suede upper, padded collar, and waffle outsole make it as functional as it is stylish. A must-have for any sneaker collection.",
+  "category": "sneakers",
+  "image": "https://placehold.co/400x400/dc2626/ffffff?text=Vans+Old+Skool",
+  "rating": {
+    "rate": 4.5,
+    "count": 608
+  },
+  "brand": "Vans",
+  "mpn": "VANS-0005",
+  "gtin": "2000005070006",
+  "condition": "new",
+  "color": "Black",
+  "material": "Canvas",
+  "availability": "in_stock",
+  "inventory_quantity": 159,
+  "google_product_category": "187",
+  "item_group_id": "GRP-5",
+  "sizes": [
+    "US 7",
+    "US 8",
+    "US 9",
+    "US 10",
+    "US 11",
+    "US 12"
+  ],
+  "variants": [
+    {
+      "size": "US 7",
+      "color": "Black",
+      "sku": "SKU-5-7",
+      "gtin": "2000005070006",
+      "availability": "in_stock",
+      "inventory_quantity": 19
+    },
+    {
+      "size": "US 8",
+      "color": "Black",
+      "sku": "SKU-5-8",
+      "gtin": "2000005080005",
+      "availability": "in_stock",
+      "inventory_quantity": 22
+    },
+    {
+      "size": "US 9",
+      "color": "Black",
+      "sku": "SKU-5-9",
+      "gtin": "2000005090004",
+      "availability": "in_stock",
+      "inventory_quantity": 25
+    },
+    {
+      "size": "US 10",
+      "color": "Black",
+      "sku": "SKU-5-10",
+      "gtin": "2000005100000",
+      "availability": "in_stock",
+      "inventory_quantity": 28
+    },
+    {
+      "size": "US 11",
+      "color": "Black",
+      "sku": "SKU-5-11",
+      "gtin": "2000005110009",
+      "availability": "in_stock",
+      "inventory_quantity": 31
+    },
+    {
+      "size": "US 12",
+      "color": "Black",
+      "sku": "SKU-5-12",
+      "gtin": "2000005120008",
+      "availability": "in_stock",
+      "inventory_quantity": 34
+    }
+  ],
+  "images": [
+    "https://placehold.co/400x400/dc2626/ffffff?text=Vans+Old+Skool"
+  ]
+}

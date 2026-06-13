@@ -1,0 +1,83 @@
+{
+  "id": 3,
+  "title": "Converse Chuck Taylor All Star",
+  "price": 65,
+  "description": "The Chuck Taylor All Star is the world's most iconic sneaker — a canvas high-top that's been a cultural staple since 1917. Featuring a durable canvas upper, medial eyelet for added ventilation, and the classic ankle patch. Pairs effortlessly with jeans, chinos, or anything in between.",
+  "category": "sneakers",
+  "image": "https://placehold.co/400x400/1e293b/ffffff?text=Converse+Chuck+Taylor",
+  "rating": {
+    "rate": 4.7,
+    "count": 893
+  },
+  "brand": "Converse",
+  "mpn": "CONVER-0003",
+  "gtin": "2000003070008",
+  "condition": "new",
+  "color": "Black",
+  "material": "Canvas",
+  "availability": "in_stock",
+  "inventory_quantity": 75,
+  "google_product_category": "187",
+  "item_group_id": "GRP-3",
+  "sizes": [
+    "US 7",
+    "US 8",
+    "US 9",
+    "US 10",
+    "US 11",
+    "US 12"
+  ],
+  "variants": [
+    {
+      "size": "US 7",
+      "color": "Black",
+      "sku": "SKU-3-7",
+      "gtin": "2000003070008",
+      "availability": "in_stock",
+      "inventory_quantity": 5
+    },
+    {
+      "size": "US 8",
+      "color": "Black",
+      "sku": "SKU-3-8",
+      "gtin": "2000003080007",
+      "availability": "in_stock",
+      "inventory_quantity": 8
+    },
+    {
+      "size": "US 9",
+      "color": "Black",
+      "sku": "SKU-3-9",
+      "gtin": "2000003090006",
+      "availability": "in_stock",
+      "inventory_quantity": 11
+    },
+    {
+      "size": "US 10",
+      "color": "Black",
+      "sku": "SKU-3-10",
+      "gtin": "2000003100002",
+      "availability": "in_stock",
+      "inventory_quantity": 14
+    },
+    {
+      "size": "US 11",
+      "color": "Black",
+      "sku": "SKU-3-11",
+      "gtin": "2000003110001",
+      "availability": "in_stock",
+      "inventory_quantity": 17
+    },
+    {
+      "size": "US 12",
+      "color": "Black",
+      "sku": "SKU-3-12",
+      "gtin": "2000003120000",
+      "availability": "in_stock",
+      "inventory_quantity": 20
+    }
+  ],
+  "images": [
+    "https://placehold.co/400x400/1e293b/ffffff?text=Converse+Chuck+Taylor"
+  ]
+}

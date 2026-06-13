@@ -1,0 +1,260 @@
+{
+  "count": 15,
+  "items": [
+    {
+      "id": 1,
+      "title": "Nike Air Max 270",
+      "brand": "Nike",
+      "color": "Blue",
+      "category": "sneakers",
+      "price": 129.99,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 2,
+      "title": "Adidas Stan Smith",
+      "brand": "Adidas",
+      "color": "White",
+      "category": "sneakers",
+      "price": 89.99,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 3,
+      "title": "Converse Chuck Taylor All Star",
+      "brand": "Converse",
+      "color": "Black",
+      "category": "sneakers",
+      "price": 65,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 4,
+      "title": "New Balance 574",
+      "brand": "New Balance",
+      "color": "Grey",
+      "category": "sneakers",
+      "price": 79.99,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 5,
+      "title": "Vans Old Skool",
+      "brand": "Vans",
+      "color": "Black",
+      "category": "sneakers",
+      "price": 69.99,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 6,
+      "title": "Nike React Infinity Run Flyknit",
+      "brand": "Nike",
+      "color": "Cyan",
+      "category": "running",
+      "price": 159.99,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 7,
+      "title": "Adidas Ultraboost 22",
+      "brand": "Adidas",
+      "color": "Core Black",
+      "category": "running",
+      "price": 189.99,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 8,
+      "title": "Brooks Ghost 15",
+      "brand": "Brooks",
+      "color": "Green",
+      "category": "running",
+      "price": 139.99,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 9,
+      "title": "ASICS Gel-Nimbus 25",
+      "brand": "ASICS",
+      "color": "Purple",
+      "category": "running",
+      "price": 159.95,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 10,
+      "title": "Timberland 6-Inch Premium Waterproof Boot",
+      "brand": "Timberland",
+      "color": "Wheat",
+      "category": "boots",
+      "price": 198,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 11,
+      "title": "Dr. Martens 1460 Original 8-Eye Boot",
+      "brand": "Dr. Martens",
+      "color": "Black",
+      "category": "boots",
+      "price": 169.99,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 12,
+      "title": "Thursday Boot Co. Captain Chelsea Boot",
+      "brand": "Thursday Boot Co.",
+      "color": "Brown",
+      "category": "boots",
+      "price": 199.99,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 13,
+      "title": "Birkenstock Arizona Soft Footbed",
+      "brand": "Birkenstock",
+      "color": "Brown",
+      "category": "sandals",
+      "price": 99.95,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 14,
+      "title": "Teva Original Universal Sandal",
+      "brand": "Teva",
+      "color": "Black",
+      "category": "sandals",
+      "price": 55,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    },
+    {
+      "id": 15,
+      "title": "Reef Cushion Bounce Phantom",
+      "brand": "Reef",
+      "color": "Black",
+      "category": "sandals",
+      "price": 74.99,
+      "sizes": [
+        "US 7",
+        "US 8",
+        "US 9",
+        "US 10",
+        "US 11",
+        "US 12"
+      ],
+      "availability": "in_stock"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": 11,
+  "title": "Dr. Martens 1460 Original 8-Eye Boot",
+  "price": 169.99,
+  "description": "Since 1960, the Dr. Martens 1460 has been a symbol of counterculture and individual style. Made from smooth Smooth leather with the signature air-cushioned sole, AirWair heel loop, yellow welt stitching, and grooved sides. This is the original boot that started it all — durable, iconic, and endlessly versatile.",
+  "category": "boots",
+  "image": "https://placehold.co/400x400/1c1917/ffffff?text=Dr.+Martens+1460",
+  "rating": {
+    "rate": 4.6,
+    "count": 544
+  },
+  "brand": "Dr. Martens",
+  "mpn": "DRMART-0011",
+  "gtin": "2000011070007",
+  "condition": "new",
+  "color": "Black",
+  "material": "Smooth Leather",
+  "availability": "in_stock",
+  "inventory_quantity": 171,
+  "google_product_category": "187",
+  "item_group_id": "GRP-11",
+  "sizes": [
+    "US 7",
+    "US 8",
+    "US 9",
+    "US 10",
+    "US 11",
+    "US 12"
+  ],
+  "variants": [
+    {
+      "size": "US 7",
+      "color": "Black",
+      "sku": "SKU-11-7",
+      "gtin": "2000011070007",
+      "availability": "in_stock",
+      "inventory_quantity": 21
+    },
+    {
+      "size": "US 8",
+      "color": "Black",
+      "sku": "SKU-11-8",
+      "gtin": "2000011080006",
+      "availability": "in_stock",
+      "inventory_quantity": 24
+    },
+    {
+      "size": "US 9",
+      "color": "Black",
+      "sku": "SKU-11-9",
+      "gtin": "2000011090005",
+      "availability": "in_stock",
+      "inventory_quantity": 27
+    },
+    {
+      "size": "US 10",
+      "color": "Black",
+      "sku": "SKU-11-10",
+      "gtin": "2000011100001",
+      "availability": "in_stock",
+      "inventory_quantity": 30
+    },
+    {
+      "size": "US 11",
+      "color": "Black",
+      "sku": "SKU-11-11",
+      "gtin": "2000011110000",
+      "availability": "in_stock",
+      "inventory_quantity": 33
+    },
+    {
+      "size": "US 12",
+      "color": "Black",
+      "sku": "SKU-11-12",
+      "gtin": "2000011120009",
+      "availability": "in_stock",
+      "inventory_quantity": 36
+    }
+  ],
+  "images": [
+    "https://placehold.co/400x400/1c1917/ffffff?text=Dr.+Martens+1460"
+  ]
+}

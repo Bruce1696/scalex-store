@@ -1,0 +1,83 @@
+{
+  "id": 13,
+  "title": "Birkenstock Arizona Soft Footbed",
+  "price": 99.95,
+  "description": "The Birkenstock Arizona is the quintessential two-strap sandal — instantly recognizable and beloved worldwide. The contoured cork-latex footbed molds to the shape of your foot over time, providing customized arch support and deep heel cup. The soft footbed variant adds an extra layer of suede cushioning for supreme comfort.",
+  "category": "sandals",
+  "image": "https://placehold.co/400x400/d97706/ffffff?text=Birkenstock+Arizona",
+  "rating": {
+    "rate": 4.7,
+    "count": 631
+  },
+  "brand": "Birkenstock",
+  "mpn": "BIRKEN-0013",
+  "gtin": "2000013070005",
+  "condition": "new",
+  "color": "Brown",
+  "material": "Cork & Suede",
+  "availability": "in_stock",
+  "inventory_quantity": 135,
+  "google_product_category": "187",
+  "item_group_id": "GRP-13",
+  "sizes": [
+    "US 7",
+    "US 8",
+    "US 9",
+    "US 10",
+    "US 11",
+    "US 12"
+  ],
+  "variants": [
+    {
+      "size": "US 7",
+      "color": "Brown",
+      "sku": "SKU-13-7",
+      "gtin": "2000013070005",
+      "availability": "in_stock",
+      "inventory_quantity": 35
+    },
+    {
+      "size": "US 8",
+      "color": "Brown",
+      "sku": "SKU-13-8",
+      "gtin": "2000013080004",
+      "availability": "in_stock",
+      "inventory_quantity": 38
+    },
+    {
+      "size": "US 9",
+      "color": "Brown",
+      "sku": "SKU-13-9",
+      "gtin": "2000013090003",
+      "availability": "in_stock",
+      "inventory_quantity": 41
+    },
+    {
+      "size": "US 10",
+      "color": "Brown",
+      "sku": "SKU-13-10",
+      "gtin": "2000013100009",
+      "availability": "in_stock",
+      "inventory_quantity": 4
+    },
+    {
+      "size": "US 11",
+      "color": "Brown",
+      "sku": "SKU-13-11",
+      "gtin": "2000013110008",
+      "availability": "in_stock",
+      "inventory_quantity": 7
+    },
+    {
+      "size": "US 12",
+      "color": "Brown",
+      "sku": "SKU-13-12",
+      "gtin": "2000013120007",
+      "availability": "in_stock",
+      "inventory_quantity": 10
+    }
+  ],
+  "images": [
+    "https://placehold.co/400x400/d97706/ffffff?text=Birkenstock+Arizona"
+  ]
+}

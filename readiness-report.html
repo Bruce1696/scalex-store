@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Commerce Readiness Report — ScalexStore</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; background: #f8fafc; color: #1e293b; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 32px 20px 64px; }
+  .top { display: flex; gap: 28px; align-items: center; background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px; }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  h2 { font-size: 1.05rem; margin: 32px 0 12px; }
+  .sub { color: #64748b; font-size: .9rem; margin: 0; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; }
+  .row { display: flex; align-items: center; gap: 10px; margin: 9px 0; font-size: .9rem; }
+  .rl { width: 230px; flex: none; }
+  .rt { flex: 1; background: #eef2f7; height: 10px; border-radius: 6px; overflow: hidden; }
+  .rf { display: block; height: 100%; border-radius: 6px; }
+  .rv { width: 64px; text-align: right; font-variant-numeric: tabular-nums; color: #475569; }
+  .muted { color: #94a3b8; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; font-size: .88rem; }
+  td { padding: 8px 12px; border-top: 1px solid #f1f5f9; vertical-align: top; }
+  tr.ghead td { background: #f1f5f9; font-weight: 700; }
+  tr.bad td:nth-child(2) { font-weight: 600; }
+  code { background: #f1f5f9; padding: 1px 6px; border-radius: 5px; font-size: .85em; }
+  .journey { line-height: 1.9; padding-left: 20px; }
+  .pill { display: inline-block; background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; padding: 2px 10px; border-radius: 999px; font-size: .8rem; }
+  .pill.warn { background: #fffbeb; color: #b45309; border-color: #fcd34d; }
+  footer { text-align: center; color: #94a3b8; font-size: .8rem; margin-top: 40px; }
+</style></head>
+<body><div class="wrap">
+
+  <div class="top">
+    <div><svg width="140" height="140" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="52" fill="none" stroke="#e5e7eb" stroke-width="12"/>
+    <circle cx="60" cy="60" r="52" fill="none" stroke="#16a34a" stroke-width="12" stroke-linecap="round"
+      stroke-dasharray="326.7256359733385" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
+    <text x="60" y="56" text-anchor="middle" font-size="30" font-weight="800" fill="#111">100</text>
+    <text x="60" y="76" text-anchor="middle" font-size="12" fill="#666">/ 100 · A</text>
+  </svg></div>
+    <div>
+      <h1>AI Commerce Readiness Report</h1>
+      <p class="sub">ScalexStore · LOCAL FILES · 2026-06-13</p>
+      <p class="sub" style="margin-top:8px">33/33 checks passed · 15 products · 90 variants · 20 fields each</p>
+      <p style="margin-top:10px">
+        <span class="pill">Ready for AI-driven discovery & agentic commerce</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:24px">
+    <div class="card"><h2 style="margin-top:0">Per-agent readiness</h2><div class="row"><span class="rl">ChatGPT · A</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100</span></div><div class="row"><span class="rl">Gemini · A</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100</span></div><div class="row"><span class="rl">Perplexity · A</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100</span></div><div class="row"><span class="rl">Shopping · A</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100</span></div></div>
+    <div class="card"><h2 style="margin-top:0">By layer / category</h2><div class="row"><span class="rl">Crawlability</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100 <span class="muted">(7/7)</span></span></div><div class="row"><span class="rl">Structured Data</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100 <span class="muted">(5/5)</span></span></div><div class="row"><span class="rl">SEO Basics</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100 <span class="muted">(4/4)</span></span></div><div class="row"><span class="rl">Content Rendering</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100 <span class="muted">(3/3)</span></span></div><div class="row"><span class="rl">Feed Quality</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100 <span class="muted">(5/5)</span></span></div><div class="row"><span class="rl">Semantic Discovery</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100 <span class="muted">(4/4)</span></span></div><div class="row"><span class="rl">Agent Workflow</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100 <span class="muted">(5/5)</span></span></div></div>
+  </div>
+
+  <h2>Agent workflow trace (Layer 3)</h2>
+  <div class="card"><ol class="journey">
+      <li><b>Search</b> <code>"black sneakers under $100"</code> → <b>Converse Chuck Taylor All Star</b> (#3)</li>
+      <li><b>Inventory</b> US 7 → ✅ in stock (5)</li>
+      <li><b>Add to cart</b> → ✅ added</li>
+      <li><b>Guardrail</b> add without size → ✅ correctly rejected (<code>variant_required</code>)</li>
+      <li><b>Checkout</b> → ✅ <code>ord_5001</code>, subtotal $65 (1 item)</li>
+    </ol></div>
+
+  <h2>Platform readiness</h2>
+  <div class="card">
+    <div class="row"><span class="rl">ChatGPT-style product discovery</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100</span></div>
+    <div class="row"><span class="rl">Google Shopping-style feed</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100</span></div>
+    <div class="row"><span class="rl">Agentic commerce checkout</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100</span></div>
+    <div class="row"><span class="rl">Semantic / NL discovery</span>
+    <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
+    <span class="rv">100</span></div>
+  </div>
+
+  <h2>All checks</h2>
+  <table><tbody><tr class="ghead"><td colspan="4">Crawlability — 7/7</td></tr><tr class="ok">
+        <td>✅</td>
+        <td>robots.txt exists</td>
+        <td class="muted">ChatGPT, Gemini, Perplexity, Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Allows GPTBot (OpenAI)</td>
+        <td class="muted">ChatGPT</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Allows Google-Extended (Gemini)</td>
+        <td class="muted">Gemini</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Allows PerplexityBot</td>
+        <td class="muted">Perplexity</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>sitemap.xml exists &amp; linked</td>
+        <td class="muted">Gemini, Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>llms.txt exists</td>
+        <td class="muted">ChatGPT, Perplexity</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>JSON product feed exists</td>
+        <td class="muted">ChatGPT, Shopping</td>
+        <td class="muted"></td></tr><tr class="ghead"><td colspan="4">Structured Data — 5/5</td></tr><tr class="ok">
+        <td>✅</td>
+        <td>JSON-LD on home page</td>
+        <td class="muted">ChatGPT, Gemini, Perplexity</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>ItemList catalog schema</td>
+        <td class="muted">Gemini, Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Product schema with Offer</td>
+        <td class="muted">ChatGPT, Gemini, Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Organization / WebSite schema</td>
+        <td class="muted">Gemini</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Product page JSON-LD with brand</td>
+        <td class="muted">ChatGPT, Gemini, Shopping</td>
+        <td class="muted"></td></tr><tr class="ghead"><td colspan="4">SEO Basics — 4/4</td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Meta description</td>
+        <td class="muted">ChatGPT, Gemini, Perplexity</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Canonical URL</td>
+        <td class="muted">Gemini</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>OpenGraph tags</td>
+        <td class="muted">ChatGPT, Perplexity</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Twitter card</td>
+        <td class="muted">Perplexity</td>
+        <td class="muted"></td></tr><tr class="ghead"><td colspan="4">Content Rendering — 3/3</td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Catalog readable without JS (home)</td>
+        <td class="muted">ChatGPT, Gemini, Perplexity, Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Product detail readable without JS</td>
+        <td class="muted">ChatGPT, Gemini, Perplexity, Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Variants/sizes visible on product page</td>
+        <td class="muted">ChatGPT, Shopping</td>
+        <td class="muted"></td></tr><tr class="ghead"><td colspan="4">Feed Quality — 5/5</td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Products have brand</td>
+        <td class="muted">Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Products have GTIN/MPN</td>
+        <td class="muted">Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Products have availability</td>
+        <td class="muted">Shopping, ChatGPT</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Products have variants (size/color)</td>
+        <td class="muted">Shopping, ChatGPT</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Google product category mapped</td>
+        <td class="muted">Shopping</td>
+        <td class="muted"></td></tr><tr class="ghead"><td colspan="4">Semantic Discovery — 4/4</td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Colour+category+price query filters correctly</td>
+        <td class="muted">ChatGPT, Gemini, Perplexity</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Attribute query returns the right product</td>
+        <td class="muted">ChatGPT, Perplexity, Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Keyword intent ranks the right product first</td>
+        <td class="muted">ChatGPT, Gemini</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Size query respects per-variant inventory</td>
+        <td class="muted">ChatGPT, Shopping</td>
+        <td class="muted"></td></tr><tr class="ghead"><td colspan="4">Agent Workflow — 5/5</td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Search resolves to a concrete product</td>
+        <td class="muted">ChatGPT, Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Inventory check returns variant availability</td>
+        <td class="muted">ChatGPT, Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Add-to-cart succeeds with a valid variant</td>
+        <td class="muted">ChatGPT, Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Cart rejects missing/invalid variant (no ambiguity)</td>
+        <td class="muted">ChatGPT, Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>Checkout initiates with order total</td>
+        <td class="muted">ChatGPT, Shopping</td>
+        <td class="muted"></td></tr></tbody></table>
+
+  <footer>Generated by tools/report.mjs · AI Discoverability Test Engine · brands: Nike, Adidas, Converse, New Balance, Vans, Brooks, ASICS, Timberland, Dr. Martens, Thursday Boot Co., Birkenstock, Teva, Reef</footer>
+</div></body></html>

@@ -1,0 +1,83 @@
+{
+  "id": 1,
+  "title": "Nike Air Max 270",
+  "price": 129.99,
+  "description": "The Nike Air Max 270 delivers visible cushioning under every step with a large Air unit in the heel — the biggest in Nike running history. A breathable mesh upper and foam midsole keep things lightweight, while the wide heel cradle provides stability. Perfect for all-day wear and casual street style.",
+  "category": "sneakers",
+  "image": "https://placehold.co/400x400/2563eb/ffffff?text=Nike+Air+Max+270",
+  "rating": {
+    "rate": 4.6,
+    "count": 342
+  },
+  "brand": "Nike",
+  "mpn": "NIKE-0001",
+  "gtin": "2000001070000",
+  "condition": "new",
+  "color": "Blue",
+  "material": "Mesh",
+  "availability": "in_stock",
+  "inventory_quantity": 151,
+  "google_product_category": "187",
+  "item_group_id": "GRP-1",
+  "sizes": [
+    "US 7",
+    "US 8",
+    "US 9",
+    "US 10",
+    "US 11",
+    "US 12"
+  ],
+  "variants": [
+    {
+      "size": "US 7",
+      "color": "Blue",
+      "sku": "SKU-1-7",
+      "gtin": "2000001070000",
+      "availability": "in_stock",
+      "inventory_quantity": 31
+    },
+    {
+      "size": "US 8",
+      "color": "Blue",
+      "sku": "SKU-1-8",
+      "gtin": "2000001080009",
+      "availability": "in_stock",
+      "inventory_quantity": 34
+    },
+    {
+      "size": "US 9",
+      "color": "Blue",
+      "sku": "SKU-1-9",
+      "gtin": "2000001090008",
+      "availability": "in_stock",
+      "inventory_quantity": 37
+    },
+    {
+      "size": "US 10",
+      "color": "Blue",
+      "sku": "SKU-1-10",
+      "gtin": "2000001100004",
+      "availability": "in_stock",
+      "inventory_quantity": 40
+    },
+    {
+      "size": "US 11",
+      "color": "Blue",
+      "sku": "SKU-1-11",
+      "gtin": "2000001110003",
+      "availability": "in_stock",
+      "inventory_quantity": 3
+    },
+    {
+      "size": "US 12",
+      "color": "Blue",
+      "sku": "SKU-1-12",
+      "gtin": "2000001120002",
+      "availability": "in_stock",
+      "inventory_quantity": 6
+    }
+  ],
+  "images": [
+    "https://placehold.co/400x400/2563eb/ffffff?text=Nike+Air+Max+270"
+  ]
+}

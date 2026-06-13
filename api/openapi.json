@@ -1,0 +1,94 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "ScalexStore Agent Commerce API",
+    "version": "1.0.0",
+    "description": "Agent-readable commerce endpoints. Read endpoints are static JSON on the CDN; cart/checkout require the commerce server."
+  },
+  "servers": [
+    {
+      "url": "https://dailmyshop.netlify.app"
+    }
+  ],
+  "paths": {
+    "/api/products.json": {
+      "get": {
+        "summary": "Full catalog (static)"
+      }
+    },
+    "/api/products/{id}.json": {
+      "get": {
+        "summary": "Product detail (static)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      }
+    },
+    "/api/products/{id}/inventory.json": {
+      "get": {
+        "summary": "Per-variant availability (static)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      }
+    },
+    "/api/search-index.json": {
+      "get": {
+        "summary": "Lightweight search index (static)"
+      }
+    },
+    "/api/cart": {
+      "post": {
+        "summary": "Create a cart (dynamic — commerce server)"
+      }
+    },
+    "/api/cart/{id}/items": {
+      "post": {
+        "summary": "Add an item (dynamic)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "product_id",
+                  "size"
+                ],
+                "properties": {
+                  "product_id": {
+                    "type": "integer"
+                  },
+                  "size": {
+                    "type": "string"
+                  },
+                  "qty": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/checkout": {
+      "post": {
+        "summary": "Initiate checkout (dynamic)"
+      }
+    }
+  }
+}

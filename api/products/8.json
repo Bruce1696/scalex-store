@@ -1,0 +1,83 @@
+{
+  "id": 8,
+  "title": "Brooks Ghost 15",
+  "price": 139.99,
+  "description": "The Brooks Ghost 15 is a trusted daily trainer built for neutral runners who want a smooth, balanced ride. Soft cushioning underfoot via DNA Loft v2 foam provides a plush yet responsive feel. The engineered air mesh upper offers a breathable and secure fit from first mile to last.",
+  "category": "running",
+  "image": "https://placehold.co/400x400/059669/ffffff?text=Brooks+Ghost+15",
+  "rating": {
+    "rate": 4.6,
+    "count": 298
+  },
+  "brand": "Brooks",
+  "mpn": "BROOKS-0008",
+  "gtin": "2000008070003",
+  "condition": "new",
+  "color": "Green",
+  "material": "Engineered Mesh",
+  "availability": "in_stock",
+  "inventory_quantity": 85,
+  "google_product_category": "187",
+  "item_group_id": "GRP-8",
+  "sizes": [
+    "US 7",
+    "US 8",
+    "US 9",
+    "US 10",
+    "US 11",
+    "US 12"
+  ],
+  "variants": [
+    {
+      "size": "US 7",
+      "color": "Green",
+      "sku": "SKU-8-7",
+      "gtin": "2000008070003",
+      "availability": "in_stock",
+      "inventory_quantity": 40
+    },
+    {
+      "size": "US 8",
+      "color": "Green",
+      "sku": "SKU-8-8",
+      "gtin": "2000008080002",
+      "availability": "in_stock",
+      "inventory_quantity": 3
+    },
+    {
+      "size": "US 9",
+      "color": "Green",
+      "sku": "SKU-8-9",
+      "gtin": "2000008090001",
+      "availability": "in_stock",
+      "inventory_quantity": 6
+    },
+    {
+      "size": "US 10",
+      "color": "Green",
+      "sku": "SKU-8-10",
+      "gtin": "2000008100007",
+      "availability": "in_stock",
+      "inventory_quantity": 9
+    },
+    {
+      "size": "US 11",
+      "color": "Green",
+      "sku": "SKU-8-11",
+      "gtin": "2000008110006",
+      "availability": "in_stock",
+      "inventory_quantity": 12
+    },
+    {
+      "size": "US 12",
+      "color": "Green",
+      "sku": "SKU-8-12",
+      "gtin": "2000008120005",
+      "availability": "in_stock",
+      "inventory_quantity": 15
+    }
+  ],
+  "images": [
+    "https://placehold.co/400x400/059669/ffffff?text=Brooks+Ghost+15"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "product_id": 3,
+  "variants": [
+    {
+      "size": "US 7",
+      "sku": "SKU-3-7",
+      "available": true,
+      "inventory_quantity": 5
+    },
+    {
+      "size": "US 8",
+      "sku": "SKU-3-8",
+      "available": true,
+      "inventory_quantity": 8
+    },
+    {
+      "size": "US 9",
+      "sku": "SKU-3-9",
+      "available": true,
+      "inventory_quantity": 11
+    },
+    {
+      "size": "US 10",
+      "sku": "SKU-3-10",
+      "available": true,
+      "inventory_quantity": 14
+    },
+    {
+      "size": "US 11",
+      "sku": "SKU-3-11",
+      "available": true,
+      "inventory_quantity": 17
+    },
+    {
+      "size": "US 12",
+      "sku": "SKU-3-12",
+      "available": true,
+      "inventory_quantity": 20
+    }
+  ]
+}

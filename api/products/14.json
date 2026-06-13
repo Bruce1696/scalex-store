@@ -1,0 +1,83 @@
+{
+  "id": 14,
+  "title": "Teva Original Universal Sandal",
+  "price": 55,
+  "description": "Born on the Colorado River in 1984, the Teva Original Universal is the adventure sandal that started it all. The universal strapping system provides a custom fit for all foot shapes, while the Spider rubber outsole grips wet and dry surfaces with confidence. Waterproof, packable, and built for wherever the day takes you.",
+  "category": "sandals",
+  "image": "https://placehold.co/400x400/ea580c/ffffff?text=Teva+Original+Universal",
+  "rating": {
+    "rate": 4.4,
+    "count": 287
+  },
+  "brand": "Teva",
+  "mpn": "TEVA-0014",
+  "gtin": "2000014070004",
+  "condition": "new",
+  "color": "Black",
+  "material": "Recycled Webbing",
+  "availability": "in_stock",
+  "inventory_quantity": 97,
+  "google_product_category": "187",
+  "item_group_id": "GRP-14",
+  "sizes": [
+    "US 7",
+    "US 8",
+    "US 9",
+    "US 10",
+    "US 11",
+    "US 12"
+  ],
+  "variants": [
+    {
+      "size": "US 7",
+      "color": "Black",
+      "sku": "SKU-14-7",
+      "gtin": "2000014070004",
+      "availability": "in_stock",
+      "inventory_quantity": 42
+    },
+    {
+      "size": "US 8",
+      "color": "Black",
+      "sku": "SKU-14-8",
+      "gtin": "2000014080003",
+      "availability": "in_stock",
+      "inventory_quantity": 5
+    },
+    {
+      "size": "US 9",
+      "color": "Black",
+      "sku": "SKU-14-9",
+      "gtin": "2000014090002",
+      "availability": "in_stock",
+      "inventory_quantity": 8
+    },
+    {
+      "size": "US 10",
+      "color": "Black",
+      "sku": "SKU-14-10",
+      "gtin": "2000014100008",
+      "availability": "in_stock",
+      "inventory_quantity": 11
+    },
+    {
+      "size": "US 11",
+      "color": "Black",
+      "sku": "SKU-14-11",
+      "gtin": "2000014110007",
+      "availability": "in_stock",
+      "inventory_quantity": 14
+    },
+    {
+      "size": "US 12",
+      "color": "Black",
+      "sku": "SKU-14-12",
+      "gtin": "2000014120006",
+      "availability": "in_stock",
+      "inventory_quantity": 17
+    }
+  ],
+  "images": [
+    "https://placehold.co/400x400/ea580c/ffffff?text=Teva+Original+Universal"
+  ]
+}
