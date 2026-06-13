@@ -1,0 +1,41 @@
+# Netlify configuration — static site + serverless commerce API.
+#
+# The READ side of the agent API is pre-rendered static JSON
+# (tools/build-api.mjs → /api/products*.json, handled by _redirects).
+# The WRITE side (search/cart/checkout) is dynamic and served by the
+# function below, so a static deploy still exposes live agent endpoints.
+
+[build]
+  publish = "."
+  command = "node tools/enrich.mjs && node tools/build-feed.mjs && node tools/build-seo.mjs && node tools/build-api.mjs"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Dynamic agent endpoints → the commerce function. These are matched
+# BEFORE the static _redirects rules, and none of them collide with the
+# static read paths (/api/products*, /api/search-index, /api/feed.*).
+[[redirects]]
+  from = "/api/search"
+  to = "/.netlify/functions/commerce/search"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/cart/items"
+  to = "/.netlify/functions/commerce/cart/items"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/cart"
+  to = "/.netlify/functions/commerce/cart"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/checkout"
+  to = "/.netlify/functions/commerce/checkout"
+  status = 200
+  force = true

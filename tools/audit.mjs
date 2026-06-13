@@ -21,6 +21,20 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const AGENTS = { gpt: 'ChatGPT', gem: 'Gemini', plx: 'Perplexity', shop: 'Shopping' };
 export const grade = (pct) => (pct >= 90 ? 'A' : pct >= 80 ? 'B' : pct >= 65 ? 'C' : pct >= 50 ? 'D' : 'F');
 
+// ── The three readiness layers required by the brief ───────────
+// Every check belongs to exactly one layer (via its group). Layer
+// scores are surfaced alongside the per-agent and per-group views.
+export const LAYERS = {
+  1: 'Structural Readiness',     // can a crawler reach, render & parse it?
+  2: 'Semantic Discoverability', // does NL search return the right products?
+  3: 'Agent Workflow Readiness', // can an agent search → cart → checkout?
+};
+const GROUP_LAYER = {
+  'Crawlability': 1, 'Structured Data': 1, 'SEO Basics': 1, 'Content Rendering': 1, 'Feed Quality': 1,
+  'Semantic Discovery': 2,
+  'Agent Workflow': 3,
+};
+
 async function readSafe(name) {
   try { return await readFile(join(ROOT, name), 'utf8'); } catch { return ''; }
 }
@@ -42,6 +56,7 @@ export async function audit(liveUrl) {
     site.sitemap = await fetchSafe(`${base}/sitemap.xml`);
     site.llms = await fetchSafe(`${base}/llms.txt`);
     site.feed = await fetchSafe(`${base}/products.json`);
+    site.acp = await fetchSafe(`${base}/api/feed.acp.json`);
   } else {
     site.index = await readSafe('index.html');
     site.product = await readSafe('product-10.html');
@@ -49,9 +64,12 @@ export async function audit(liveUrl) {
     site.sitemap = await readSafe('sitemap.xml');
     site.llms = await readSafe('llms.txt');
     site.feed = await readSafe('products.json');
+    site.acp = await readSafe('api/feed.acp.json');
   }
   let feed = [];
   try { feed = JSON.parse(site.feed); } catch {}
+  let acp = {};
+  try { acp = JSON.parse(site.acp); } catch {}
 
   const has = (s, ...n) => n.every((x) => s.includes(x));
   const sem = (q) => (feed.length ? Discover.discover(feed, q, { limit: 5 }) : { results: [] });
@@ -117,6 +135,12 @@ export async function audit(liveUrl) {
       test: () => feed.length > 0 && feed.every((p) => Array.isArray(p.variants) && p.variants.length), fix: 'Add a variants array.' },
     { group: 'Feed Quality', label: 'Google product category mapped', weight: 1, agents: [A.shop],
       test: () => feed.length > 0 && feed.every((p) => p.google_product_category), fix: 'Map a Google product category.' },
+    { group: 'Feed Quality', label: 'ACP eligibility flags on products', weight: 2, agents: [A.gpt, A.shop],
+      test: () => feed.length > 0 && feed.every((p) => typeof p.enable_search === 'boolean' && typeof p.enable_checkout === 'boolean'),
+      fix: 'Add enable_search/enable_checkout flags (node tools/enrich.mjs).' },
+    { group: 'Feed Quality', label: 'ACP product feed generated (price + availability + checkout)', weight: 2, agents: [A.gpt, A.shop],
+      test: () => Array.isArray(acp.products) && acp.products.length > 0 && acp.products.every((i) => /\d\s+[A-Z]{3}$/.test(String(i.price || '')) && i.availability && typeof i.enable_checkout === 'boolean'),
+      fix: 'Generate the ACP feed: node tools/build-feed.mjs.' },
 
     // ── Layer 2: Semantic Discoverability ──────────────────
     { group: 'Semantic Discovery', label: 'Colour+category+price query filters correctly', weight: 2, agents: [A.gpt, A.gem, A.plx],
@@ -145,7 +169,11 @@ export async function audit(liveUrl) {
       test: () => flow.order && flow.order.ok === true && flow.order.order.subtotal > 0, fix: 'Expose a checkout endpoint returning an order intent.' },
   ];
 
-  for (const c of checks) { try { c.pass = !!c.test(); } catch { c.pass = false; } delete c.test; }
+  for (const c of checks) {
+    c.layer = GROUP_LAYER[c.group];
+    try { c.pass = !!c.test(); } catch { c.pass = false; }
+    delete c.test;
+  }
 
   const pctOf = (sub) => {
     const tot = sub.reduce((s, c) => s + c.weight, 0);
@@ -156,10 +184,17 @@ export async function audit(liveUrl) {
   const overall = pctOf(checks);
   const groupNames = [...new Set(checks.map((c) => c.group))];
 
+  // The brief's three layers, scored by weight.
+  const layers = Object.entries(LAYERS).map(([id, name]) => {
+    const sub = checks.filter((c) => c.layer === Number(id));
+    return { id: Number(id), name, pct: pctOf(sub), passed: sub.filter((c) => c.pass).length, total: sub.length, grade: grade(pctOf(sub)) };
+  });
+
   return {
     source: liveUrl ? `LIVE: ${liveUrl}` : 'LOCAL FILES',
     overall,
     grade: grade(overall),
+    layers,
     agents: Object.values(A).map((name) => {
       const sub = checks.filter((c) => c.agents.includes(name));
       const pct = pctOf(sub);

@@ -79,5 +79,7 @@
   ],
   "images": [
     "https://placehold.co/400x400/6d28d9/ffffff?text=ASICS+Gel-Nimbus+25"
-  ]
+  ],
+  "enable_search": true,
+  "enable_checkout": true
 }

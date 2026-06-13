@@ -79,5 +79,7 @@
   ],
   "images": [
     "https://placehold.co/400x400/f59e0b/1e293b?text=Adidas+Ultraboost+22"
-  ]
+  ],
+  "enable_search": true,
+  "enable_checkout": true
 }

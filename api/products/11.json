@@ -79,5 +79,7 @@
   ],
   "images": [
     "https://placehold.co/400x400/1c1917/ffffff?text=Dr.+Martens+1460"
-  ]
+  ],
+  "enable_search": true,
+  "enable_checkout": true
 }

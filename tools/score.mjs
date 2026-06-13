@@ -28,7 +28,11 @@ console.log(`${C.dim}Source: ${r.source}${C.reset}\n`);
 console.log(`${C.bold}OVERALL AI-READINESS${C.reset}`);
 console.log(`  ${bar(r.overall)}  ${C.bold}${r.overall}/100  (grade ${r.grade})${C.reset}\n`);
 
-console.log(`${C.bold}PER-AGENT READINESS${C.reset}`);
+console.log(`${C.bold}READINESS BY LAYER (AI Discoverability Test Engine)${C.reset}`);
+for (const l of r.layers)
+  console.log(`  ${('Layer ' + l.id + ' · ' + l.name).padEnd(38)} ${bar(l.pct)}  ${String(l.pct).padStart(3)}/100  ${l.grade}  ${C.dim}(${l.passed}/${l.total})${C.reset}`);
+
+console.log(`\n${C.bold}PER-AGENT READINESS${C.reset}`);
 for (const a of r.agents)
   console.log(`  ${a.name.padEnd(11)} ${bar(a.pct)}  ${String(a.pct).padStart(3)}/100  ${a.grade}`);
 

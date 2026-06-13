@@ -62,9 +62,13 @@ await write('api/openapi.json', {
     '/api/products/{id}.json': { get: { summary: 'Product detail (static)', parameters: [{ name: 'id', in: 'path', required: true, schema: { type: 'integer' } }] } },
     '/api/products/{id}/inventory.json': { get: { summary: 'Per-variant availability (static)', parameters: [{ name: 'id', in: 'path', required: true, schema: { type: 'integer' } }] } },
     '/api/search-index.json': { get: { summary: 'Lightweight search index (static)' } },
-    '/api/cart': { post: { summary: 'Create a cart (dynamic — commerce server)' } },
-    '/api/cart/{id}/items': { post: { summary: 'Add an item (dynamic)', requestBody: { content: { 'application/json': { schema: { type: 'object', required: ['product_id', 'size'], properties: { product_id: { type: 'integer' }, size: { type: 'string' }, qty: { type: 'integer' } } } } } } } },
-    '/api/checkout': { post: { summary: 'Initiate checkout (dynamic)' } },
+    '/api/feed.acp.json': { get: { summary: 'ACP / Agentic Commerce Protocol product feed (static; .gz available)' } },
+    '/api/feed.google.json': { get: { summary: 'Google Merchant Center style product feed (static; .gz available)' } },
+    // Dynamic (Netlify Function) — stateless, client-held cart.
+    '/api/search': { post: { summary: 'Live NL product search (dynamic)', requestBody: { content: { 'application/json': { schema: { type: 'object', properties: { q: { type: 'string' } } } } } } } },
+    '/api/cart': { post: { summary: 'Create an empty cart (dynamic)' } },
+    '/api/cart/items': { post: { summary: 'Add an item — pass the cart back in (dynamic, stateless)', requestBody: { content: { 'application/json': { schema: { type: 'object', required: ['cart', 'product_id', 'size'], properties: { cart: { type: 'object' }, product_id: { type: 'integer' }, size: { type: 'string', example: 'US 10' }, qty: { type: 'integer', default: 1 } } } } } } } },
+    '/api/checkout': { post: { summary: 'Initiate checkout (dynamic)', requestBody: { content: { 'application/json': { schema: { type: 'object', required: ['cart'], properties: { cart: { type: 'object' } } } } } } } },
   },
 });
 

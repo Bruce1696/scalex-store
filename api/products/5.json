@@ -79,5 +79,7 @@
   ],
   "images": [
     "https://placehold.co/400x400/dc2626/ffffff?text=Vans+Old+Skool"
-  ]
+  ],
+  "enable_search": true,
+  "enable_checkout": true
 }

@@ -79,5 +79,7 @@
   ],
   "images": [
     "https://placehold.co/400x400/1e293b/ffffff?text=Converse+Chuck+Taylor"
-  ]
+  ],
+  "enable_search": true,
+  "enable_checkout": true
 }

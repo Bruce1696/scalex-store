@@ -79,5 +79,7 @@
   ],
   "images": [
     "https://placehold.co/400x400/2563eb/ffffff?text=Nike+Air+Max+270"
-  ]
+  ],
+  "enable_search": true,
+  "enable_checkout": true
 }

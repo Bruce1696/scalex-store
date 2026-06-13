@@ -51,32 +51,67 @@
         "summary": "Lightweight search index (static)"
       }
     },
-    "/api/cart": {
-      "post": {
-        "summary": "Create a cart (dynamic — commerce server)"
+    "/api/feed.acp.json": {
+      "get": {
+        "summary": "ACP / Agentic Commerce Protocol product feed (static; .gz available)"
       }
     },
-    "/api/cart/{id}/items": {
+    "/api/feed.google.json": {
+      "get": {
+        "summary": "Google Merchant Center style product feed (static; .gz available)"
+      }
+    },
+    "/api/search": {
       "post": {
-        "summary": "Add an item (dynamic)",
+        "summary": "Live NL product search (dynamic)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "q": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cart": {
+      "post": {
+        "summary": "Create an empty cart (dynamic)"
+      }
+    },
+    "/api/cart/items": {
+      "post": {
+        "summary": "Add an item — pass the cart back in (dynamic, stateless)",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "required": [
+                  "cart",
                   "product_id",
                   "size"
                 ],
                 "properties": {
+                  "cart": {
+                    "type": "object"
+                  },
                   "product_id": {
                     "type": "integer"
                   },
                   "size": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "US 10"
                   },
                   "qty": {
-                    "type": "integer"
+                    "type": "integer",
+                    "default": 1
                   }
                 }
               }
@@ -87,7 +122,24 @@
     },
     "/api/checkout": {
       "post": {
-        "summary": "Initiate checkout (dynamic)"
+        "summary": "Initiate checkout (dynamic)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "cart"
+                ],
+                "properties": {
+                  "cart": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

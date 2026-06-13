@@ -11,6 +11,13 @@
   h2 { font-size: 1.05rem; margin: 32px 0 12px; }
   .sub { color: #64748b; font-size: .9rem; margin: 0; }
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .layers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .layer { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 18px; }
+  .lnum { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: #94a3b8; font-weight: 700; }
+  .lname { font-weight: 700; margin: 2px 0 10px; font-size: .98rem; }
+  .lpct { font-size: 1.9rem; font-weight: 800; line-height: 1; }
+  .lpct span { font-size: .8rem; font-weight: 500; color: #94a3b8; }
+  @media (max-width: 640px) { .layers, .grid { grid-template-columns: 1fr; } }
   .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; }
   .row { display: flex; align-items: center; gap: 10px; margin: 9px 0; font-size: .9rem; }
   .rl { width: 230px; flex: none; }
@@ -41,12 +48,36 @@
     <div>
       <h1>AI Commerce Readiness Report</h1>
       <p class="sub">ScalexStore · LOCAL FILES · 2026-06-13</p>
-      <p class="sub" style="margin-top:8px">33/33 checks passed · 15 products · 90 variants · 20 fields each</p>
+      <p class="sub" style="margin-top:8px">35/35 checks passed · 15 products · 90 variants · 22 fields each</p>
       <p style="margin-top:10px">
         <span class="pill">Ready for AI-driven discovery & agentic commerce</span>
       </p>
     </div>
   </div>
+
+  <h2>Readiness by layer — AI Discoverability Test Engine</h2>
+  <div class="layers">
+  <div class="layer">
+    <div class="lnum">Layer 1</div>
+    <div class="lname">Structural Readiness</div>
+    <div class="lpct" style="color:#16a34a">100<span>/100 · A</span></div>
+    <div class="rt" style="margin-top:8px"><span class="rf" style="width:100%;background:#16a34a"></span></div>
+    <div class="muted" style="margin-top:6px;font-size:.8rem">26/26 checks</div>
+  </div>
+  <div class="layer">
+    <div class="lnum">Layer 2</div>
+    <div class="lname">Semantic Discoverability</div>
+    <div class="lpct" style="color:#16a34a">100<span>/100 · A</span></div>
+    <div class="rt" style="margin-top:8px"><span class="rf" style="width:100%;background:#16a34a"></span></div>
+    <div class="muted" style="margin-top:6px;font-size:.8rem">4/4 checks</div>
+  </div>
+  <div class="layer">
+    <div class="lnum">Layer 3</div>
+    <div class="lname">Agent Workflow Readiness</div>
+    <div class="lpct" style="color:#16a34a">100<span>/100 · A</span></div>
+    <div class="rt" style="margin-top:8px"><span class="rf" style="width:100%;background:#16a34a"></span></div>
+    <div class="muted" style="margin-top:6px;font-size:.8rem">5/5 checks</div>
+  </div></div>
 
   <div class="grid" style="margin-top:24px">
     <div class="card"><h2 style="margin-top:0">Per-agent readiness</h2><div class="row"><span class="rl">ChatGPT · A</span>
@@ -58,7 +89,7 @@
     <span class="rv">100</span></div><div class="row"><span class="rl">Shopping · A</span>
     <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
     <span class="rv">100</span></div></div>
-    <div class="card"><h2 style="margin-top:0">By layer / category</h2><div class="row"><span class="rl">Crawlability</span>
+    <div class="card"><h2 style="margin-top:0">By category</h2><div class="row"><span class="rl">Crawlability</span>
     <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
     <span class="rv">100 <span class="muted">(7/7)</span></span></div><div class="row"><span class="rl">Structured Data</span>
     <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
@@ -68,7 +99,7 @@
     <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
     <span class="rv">100 <span class="muted">(3/3)</span></span></div><div class="row"><span class="rl">Feed Quality</span>
     <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
-    <span class="rv">100 <span class="muted">(5/5)</span></span></div><div class="row"><span class="rl">Semantic Discovery</span>
+    <span class="rv">100 <span class="muted">(7/7)</span></span></div><div class="row"><span class="rl">Semantic Discovery</span>
     <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
     <span class="rv">100 <span class="muted">(4/4)</span></span></div><div class="row"><span class="rl">Agent Workflow</span>
     <span class="rt"><span class="rf" style="width:100%;background:#16a34a"></span></span>
@@ -177,7 +208,7 @@
         <td>✅</td>
         <td>Variants/sizes visible on product page</td>
         <td class="muted">ChatGPT, Shopping</td>
-        <td class="muted"></td></tr><tr class="ghead"><td colspan="4">Feed Quality — 5/5</td></tr><tr class="ok">
+        <td class="muted"></td></tr><tr class="ghead"><td colspan="4">Feed Quality — 7/7</td></tr><tr class="ok">
         <td>✅</td>
         <td>Products have brand</td>
         <td class="muted">Shopping</td>
@@ -197,6 +228,14 @@
         <td>✅</td>
         <td>Google product category mapped</td>
         <td class="muted">Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>ACP eligibility flags on products</td>
+        <td class="muted">ChatGPT, Shopping</td>
+        <td class="muted"></td></tr><tr class="ok">
+        <td>✅</td>
+        <td>ACP product feed generated (price + availability + checkout)</td>
+        <td class="muted">ChatGPT, Shopping</td>
         <td class="muted"></td></tr><tr class="ghead"><td colspan="4">Semantic Discovery — 4/4</td></tr><tr class="ok">
         <td>✅</td>
         <td>Colour+category+price query filters correctly</td>

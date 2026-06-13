@@ -48,6 +48,14 @@ const journey = f.product
 
 const groupRows = r.groups.map((g) => barRow(g.name, g.pct, ` <span class="muted">(${g.passed}/${g.total})</span>`)).join('');
 const agentRows = r.agents.map((a) => barRow(`${a.name} · ${a.grade}`, a.pct)).join('');
+const layerCards = r.layers.map((l) => `
+  <div class="layer">
+    <div class="lnum">Layer ${l.id}</div>
+    <div class="lname">${esc(l.name)}</div>
+    <div class="lpct" style="color:${col(l.pct)}">${l.pct}<span>/100 · ${l.grade}</span></div>
+    <div class="rt" style="margin-top:8px"><span class="rf" style="width:${l.pct}%;background:${col(l.pct)}"></span></div>
+    <div class="muted" style="margin-top:6px;font-size:.8rem">${l.passed}/${l.total} checks</div>
+  </div>`).join('');
 
 const checkTable = r.groups
   .map((g) => {
@@ -77,6 +85,13 @@ const html = `<!DOCTYPE html>
   h2 { font-size: 1.05rem; margin: 32px 0 12px; }
   .sub { color: #64748b; font-size: .9rem; margin: 0; }
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .layers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .layer { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 18px; }
+  .lnum { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: #94a3b8; font-weight: 700; }
+  .lname { font-weight: 700; margin: 2px 0 10px; font-size: .98rem; }
+  .lpct { font-size: 1.9rem; font-weight: 800; line-height: 1; }
+  .lpct span { font-size: .8rem; font-weight: 500; color: #94a3b8; }
+  @media (max-width: 640px) { .layers, .grid { grid-template-columns: 1fr; } }
   .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; }
   .row { display: flex; align-items: center; gap: 10px; margin: 9px 0; font-size: .9rem; }
   .rl { width: 230px; flex: none; }
@@ -108,9 +123,12 @@ const html = `<!DOCTYPE html>
     </div>
   </div>
 
+  <h2>Readiness by layer — AI Discoverability Test Engine</h2>
+  <div class="layers">${layerCards}</div>
+
   <div class="grid" style="margin-top:24px">
     <div class="card"><h2 style="margin-top:0">Per-agent readiness</h2>${agentRows}</div>
-    <div class="card"><h2 style="margin-top:0">By layer / category</h2>${groupRows}</div>
+    <div class="card"><h2 style="margin-top:0">By category</h2>${groupRows}</div>
   </div>
 
   <h2>Agent workflow trace (Layer 3)</h2>

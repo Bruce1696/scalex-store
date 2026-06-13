@@ -82,7 +82,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/2563eb/ffffff?text=Nike+Air+Max+270"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 2,
@@ -165,7 +167,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/16a34a/ffffff?text=Adidas+Stan+Smith"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 3,
@@ -248,7 +252,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/1e293b/ffffff?text=Converse+Chuck+Taylor"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 4,
@@ -331,7 +337,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/7c3aed/ffffff?text=New+Balance+574"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 5,
@@ -414,7 +422,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/dc2626/ffffff?text=Vans+Old+Skool"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 6,
@@ -497,7 +507,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/0891b2/ffffff?text=Nike+React+Infinity"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 7,
@@ -580,7 +592,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/f59e0b/1e293b?text=Adidas+Ultraboost+22"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 8,
@@ -663,7 +677,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/059669/ffffff?text=Brooks+Ghost+15"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 9,
@@ -746,7 +762,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/6d28d9/ffffff?text=ASICS+Gel-Nimbus+25"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 10,
@@ -829,7 +847,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/92400e/ffffff?text=Timberland+6+Inch"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 11,
@@ -912,7 +932,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/1c1917/ffffff?text=Dr.+Martens+1460"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 12,
@@ -995,7 +1017,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/78350f/ffffff?text=Thursday+Chelsea+Boot"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 13,
@@ -1078,7 +1102,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/d97706/ffffff?text=Birkenstock+Arizona"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 14,
@@ -1161,7 +1187,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/ea580c/ffffff?text=Teva+Original+Universal"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   },
   {
     "id": 15,
@@ -1244,7 +1272,9 @@ const PRODUCTS = [
     ],
     "images": [
       "https://placehold.co/400x400/0284c7/ffffff?text=Reef+Cushion+Bounce"
-    ]
+    ],
+    "enable_search": true,
+    "enable_checkout": true
   }
 ];
 

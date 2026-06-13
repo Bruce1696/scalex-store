@@ -79,5 +79,7 @@
   ],
   "images": [
     "https://placehold.co/400x400/0891b2/ffffff?text=Nike+React+Infinity"
-  ]
+  ],
+  "enable_search": true,
+  "enable_checkout": true
 }

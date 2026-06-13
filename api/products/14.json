@@ -79,5 +79,7 @@
   ],
   "images": [
     "https://placehold.co/400x400/ea580c/ffffff?text=Teva+Original+Universal"
-  ]
+  ],
+  "enable_search": true,
+  "enable_checkout": true
 }

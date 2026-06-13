@@ -79,5 +79,7 @@
   ],
   "images": [
     "https://placehold.co/400x400/d97706/ffffff?text=Birkenstock+Arizona"
-  ]
+  ],
+  "enable_search": true,
+  "enable_checkout": true
 }

@@ -79,5 +79,7 @@
   ],
   "images": [
     "https://placehold.co/400x400/7c3aed/ffffff?text=New+Balance+574"
-  ]
+  ],
+  "enable_search": true,
+  "enable_checkout": true
 }

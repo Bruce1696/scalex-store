@@ -87,6 +87,12 @@ const enriched = products.map((p) => {
     sizes: SIZES.map((s) => `US ${s}`),
     variants,
     images: [p.image],
+    // ── ACP eligibility flags (Agentic Commerce Protocol) ──────
+    // Per-product merchant decision: may this product be surfaced in
+    // AI search, and may an agent check it out? Both deliverables of
+    // the ACP product feed; consumed by tools/build-feed.mjs.
+    enable_search: totalInventory > 0,
+    enable_checkout: totalInventory > 0,
   };
 });
 
