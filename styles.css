@@ -658,3 +658,18 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ── Hero link to the AI discovery demo ── */
+.hero-ai-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: #fff;
+  background: rgba(124, 58, 237, 0.9);
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.15s, transform 0.15s;
+}
+.hero-ai-link:hover { background: #6d28d9; transform: translateY(-1px); }

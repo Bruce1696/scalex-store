@@ -15,6 +15,7 @@
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import Discover from '../discover-engine.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const liveUrl = process.argv[2] || null;
@@ -63,6 +64,9 @@ if (liveUrl) {
 }
 let feed = [];
 try { feed = JSON.parse(site.feed); } catch {}
+
+// Run a natural-language query through the shared discovery engine.
+const sem = (q) => (feed.length ? Discover.discover(feed, q, { limit: 5 }) : { results: [] });
 
 // ── Check definitions ────────────────────────────────────────
 // group: report section.  agents: which agents this signal feeds.
@@ -176,6 +180,42 @@ const checks = [
     agents: [A.shop],
     test: () => feed.length > 0 && feed.every((p) => p.google_product_category),
     fix: 'Map each product to a Google product taxonomy id.' },
+
+  // ── Layer 2: Semantic Discoverability ──────────────────────
+  // Does a natural-language query actually retrieve the right products?
+  { group: 'Semantic Discovery', label: 'Colour+category+price query filters correctly', weight: 2,
+    agents: [A.gpt, A.gem, A.plx],
+    test: () => {
+      const { results } = sem('black sneakers under $100');
+      return results.length > 0 && results.every((r) =>
+        r.product.category === 'sneakers' &&
+        String(r.product.color).toLowerCase().includes('black') &&
+        r.product.price <= 100);
+    },
+    fix: 'Build a query parser that applies category/colour/price as hard filters.' },
+  { group: 'Semantic Discovery', label: 'Attribute query returns the right product', weight: 2,
+    agents: [A.gpt, A.plx, A.shop],
+    test: () => {
+      const { results } = sem('brown boots under $200');
+      return results[0] && results[0].product.category === 'boots' &&
+        String(results[0].product.color).toLowerCase().includes('brown');
+    },
+    fix: 'Match colour/material attributes from the enriched feed.' },
+  { group: 'Semantic Discovery', label: 'Keyword intent ranks the right product first', weight: 1,
+    agents: [A.gpt, A.gem],
+    test: () => {
+      const { results } = sem('waterproof boots');
+      return results[0] && /Timberland/i.test(results[0].product.title);
+    },
+    fix: 'Score description keyword matches so intent ("waterproof") ranks results.' },
+  { group: 'Semantic Discovery', label: 'Size query respects per-variant inventory', weight: 2,
+    agents: [A.gpt, A.shop],
+    test: () => {
+      const { results } = sem('sandals in size 9');
+      return results.length > 0 && results.every((r) =>
+        (r.product.variants || []).some((v) => v.size === 'US 9' && v.availability === 'in_stock' && v.inventory_quantity > 0));
+    },
+    fix: 'Resolve size requests against variant-level availability/inventory.' },
 ];
 
 // ── Run checks ───────────────────────────────────────────────

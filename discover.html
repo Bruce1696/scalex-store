@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Shopping Agent — ScalexStore</title>
+  <meta name="description" content="Search ScalexStore in plain English. The AI shopping agent finds matching products and explains why each was selected." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="discover.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Scalex<span>Store</span></a>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="bc-sep">›</span>
+        <span>AI Shopping Agent</span>
+      </nav>
+    </div>
+  </header>
+
+  <section class="dq-hero">
+    <h1>Ask the shopping agent</h1>
+    <p>Describe what you want in plain English — the agent reads the AI-ready catalog, finds matches, and explains why.</p>
+    <div class="dq-searchbar">
+      <input type="text" id="dqInput" placeholder="e.g. black sneakers under $100 in size 10" autocomplete="off" />
+      <button id="dqBtn">Search</button>
+    </div>
+    <div class="dq-examples" id="dqExamples">
+      <span class="dq-ex-label">Try:</span>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="dq-interpret" id="dqInterpret" hidden></div>
+    <p class="dq-count" id="dqCount"></p>
+    <div class="product-grid" id="dqResults"></div>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 ScalexStore</p></footer>
+
+  <script src="data.js"></script>
+  <script src="discover-engine.js"></script>
+  <script src="discover.js"></script>
+</body>
+</html>
