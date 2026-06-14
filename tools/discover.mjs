@@ -10,10 +10,10 @@
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import Discover from '../discover-engine.js';
+import Discover from '../src/shared/discover-engine.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const products = JSON.parse(await readFile(join(ROOT, 'products.json'), 'utf8'));
+const products = JSON.parse(await readFile(join(ROOT, 'public', 'products.json'), 'utf8'));
 
 const C = { r: '\x1b[0m', dim: '\x1b[2m', b: '\x1b[1m', cyan: '\x1b[36m', green: '\x1b[32m', yellow: '\x1b[33m', mag: '\x1b[35m' };
 

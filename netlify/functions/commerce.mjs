@@ -21,11 +21,12 @@
 // Routing is configured in netlify.toml ([[redirects]] → this function).
 // ─────────────────────────────────────────────────────────────
 import { createRequire } from 'node:module';
-import products from '../../products.json' with { type: 'json' };
+import products from '../../public/products.json' with { type: 'json' };
+import { createCheckout } from '../../tools/catalog-adapter.mjs';
 
 const require = createRequire(import.meta.url);
-const Commerce = require('../../commerce-core.js');
-const Discover = require('../../discover-engine.js');
+const Commerce = require('../../src/shared/commerce-core.js');
+const Discover = require('../../src/shared/discover-engine.js');
 
 const json = (statusCode, body) => ({
   statusCode,
@@ -92,9 +93,11 @@ export const handler = async (event) => {
     }
 
     // POST /api/checkout  { cart }
+    // Delegated to the store via the port — the AI layer never writes the
+    // store DB; in demo mode the store side is simulated by commerce-core.
     if (tail === 'checkout') {
       const cart = rehydrate(body.cart);
-      const r = Commerce.checkout(cart);
+      const r = await createCheckout(cart, { products });
       return json(r.ok ? 201 : 422, r);
     }
 

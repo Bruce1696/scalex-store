@@ -1,1 +1,7 @@
 docs/
+
+# Generated artifacts (rebuilt by the pipeline; Netlify regenerates on deploy)
+public/
+ai-snapshot/
+readiness-report.html
+node_modules/

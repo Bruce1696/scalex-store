@@ -6,8 +6,8 @@
 # function below, so a static deploy still exposes live agent endpoints.
 
 [build]
-  publish = "."
-  command = "node tools/enrich.mjs && node tools/build-feed.mjs && node tools/build-seo.mjs && node tools/build-api.mjs"
+  publish = "public"
+  command = "node tools/build-site.mjs && node tools/ingest.mjs && node tools/enrich.mjs && node tools/build-feed.mjs && node tools/build-seo.mjs && node tools/build-api.mjs"
 
 [functions]
   directory = "netlify/functions"

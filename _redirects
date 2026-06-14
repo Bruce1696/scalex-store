@@ -1,6 +1,0 @@
-# Clean URLs for the static agent API
-/api/products/:id/inventory   /api/products/:id/inventory.json   200
-/api/products/:id             /api/products/:id.json             200
-/api/products                 /api/products.json                 200
-/api/search-index             /api/search-index.json             200
-/api/openapi                  /api/openapi.json                  200

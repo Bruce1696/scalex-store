@@ -26,12 +26,12 @@ import { dirname, join } from 'node:path';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
-const Commerce = require('../commerce-core.js');
-const Discover = require('../discover-engine.js');
+const Commerce = require('../src/shared/commerce-core.js');
+const Discover = require('../src/shared/discover-engine.js');
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PORT = process.env.PORT || 8787;
-const products = JSON.parse(await readFile(join(ROOT, 'products.json'), 'utf8'));
+const products = JSON.parse(await readFile(join(ROOT, 'public', 'products.json'), 'utf8'));
 const carts = new Map(); // in-memory cart store (demo)
 
 const send = (res, code, body) => {

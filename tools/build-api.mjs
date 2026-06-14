@@ -19,11 +19,12 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const PUBLIC = join(ROOT, 'public');
 const SITE = 'https://dailmyshop.netlify.app';
-const products = JSON.parse(await readFile(join(ROOT, 'products.json'), 'utf8'));
+const products = JSON.parse(await readFile(join(PUBLIC, 'products.json'), 'utf8'));
 
 const write = async (rel, obj) => {
-  const full = join(ROOT, rel);
+  const full = join(PUBLIC, rel);
   await mkdir(dirname(full), { recursive: true });
   await writeFile(full, JSON.stringify(obj, null, 2) + '\n');
 };
@@ -74,7 +75,7 @@ await write('api/openapi.json', {
 
 // Clean URLs on Netlify (so /api/products/10 works without .json)
 await writeFile(
-  join(ROOT, '_redirects'),
+  join(PUBLIC, '_redirects'),
   [
     '# Clean URLs for the static agent API',
     '/api/products/:id/inventory   /api/products/:id/inventory.json   200',

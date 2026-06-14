@@ -16,13 +16,13 @@
 //   node tools/build-feed.mjs
 //   CATALOG_SOURCE=medusa MEDUSA_URL=http://localhost:9000 node tools/build-feed.mjs
 // ─────────────────────────────────────────────────────────────
-import { writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { gzipSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { loadCatalog } from './catalog-adapter.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const PUBLIC = join(ROOT, 'public');
 const SITE = process.env.SITE_URL || 'https://dailmyshop.netlify.app';
 const CURRENCY = 'USD';
 
@@ -35,7 +35,8 @@ const SELLER = {
 const SHIPPING = { country: 'US', service: 'Standard', price: `0.00 ${CURRENCY}`, min_handling_days: 1, max_transit_days: 5 };
 const RETURN_POLICY = { country: 'US', days: 30, method: 'free_returns' };
 
-const products = await loadCatalog();
+// The enriched feed is the AI layer's own artifact (tools/enrich.mjs output).
+const products = JSON.parse(await readFile(join(PUBLIC, 'products.json'), 'utf8'));
 
 // One row per in-feed variant (size). Linked back to the parent product
 // with item_group_id so engines group colours/sizes of the same model.
@@ -121,7 +122,7 @@ const acpFeed = {
 const googleFeed = { version: '1.0', count: googleItems.length, products: googleItems };
 
 async function emit(rel, obj) {
-  const full = join(ROOT, rel);
+  const full = join(PUBLIC, rel);
   await mkdir(dirname(full), { recursive: true });
   const json = JSON.stringify(obj, null, 2) + '\n';
   await writeFile(full, json);

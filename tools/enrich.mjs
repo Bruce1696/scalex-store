@@ -9,12 +9,18 @@
 //
 // Run:  node tools/enrich.mjs
 // ─────────────────────────────────────────────────────────────
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const products = JSON.parse(await readFile(join(ROOT, 'products.json'), 'utf8'));
+const PUBLIC = join(ROOT, 'public'); // Netlify publish dir (generated artifacts go here)
+await mkdir(PUBLIC, { recursive: true });
+
+// Input is the AI layer's read-only snapshot of the store (tools/ingest.mjs),
+// NOT a file we also write — so enrichment never mutates the store source.
+const snapshot = JSON.parse(await readFile(join(ROOT, 'ai-snapshot', 'catalog.json'), 'utf8'));
+const products = Array.isArray(snapshot) ? snapshot : snapshot.products;
 
 // ── Per-product attributes the traditional catalog didn't carry ──
 // (brand, dominant colour and material — the things a shopper or agent
@@ -96,7 +102,7 @@ const enriched = products.map((p) => {
   };
 });
 
-await writeFile(join(ROOT, 'products.json'), JSON.stringify(enriched, null, 2) + '\n');
+await writeFile(join(PUBLIC, 'products.json'), JSON.stringify(enriched, null, 2) + '\n');
 
 // Keep data.js (used by the site + the browser discovery demo) in sync,
 // so the whole front-end runs on the same enriched catalog.
@@ -105,7 +111,7 @@ const dataJs =
   `// Source of truth is products.json (regenerate with: node tools/enrich.mjs).\n` +
   `const PRODUCTS = ${JSON.stringify(enriched, null, 2)};\n\n` +
   `const CATEGORIES = [...new Set(PRODUCTS.map(p => p.category))];\n`;
-await writeFile(join(ROOT, 'data.js'), dataJs);
+await writeFile(join(PUBLIC, 'data.js'), dataJs);
 
 const fields = Object.keys(enriched[0]).length;
 console.log(`✓ Enriched ${enriched.length} products → products.json + data.js`);

@@ -15,15 +15,17 @@
 //
 // Run:  node tools/build-seo.mjs   (run tools/enrich.mjs first)
 // ─────────────────────────────────────────────────────────────
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const PUBLIC = join(ROOT, 'public'); // served files are generated into the publish dir
 const SITE = 'https://dailmyshop.netlify.app';
 const STORE_NAME = 'ScalexStore';
 
-const products = JSON.parse(await readFile(join(ROOT, 'products.json'), 'utf8'));
+await mkdir(PUBLIC, { recursive: true });
+const products = JSON.parse(await readFile(join(PUBLIC, 'products.json'), 'utf8'));
 
 // Static, crawlable URL for each product (no query string).
 const productUrl = (p) => `${SITE}/product-${p.id}.html`;
@@ -50,7 +52,7 @@ const robots = [
   `Sitemap: ${SITE}/sitemap.xml`,
   '',
 ].join('\n');
-await writeFile(join(ROOT, 'robots.txt'), robots);
+await writeFile(join(PUBLIC, 'robots.txt'), robots);
 
 // ── 2. sitemap.xml ───────────────────────────────────────────
 const sitemap = [
@@ -63,7 +65,7 @@ const sitemap = [
   '</urlset>',
   '',
 ].join('\n');
-await writeFile(join(ROOT, 'sitemap.xml'), sitemap);
+await writeFile(join(PUBLIC, 'sitemap.xml'), sitemap);
 
 // ── 3. llms.txt ──────────────────────────────────────────────
 const llms = [
@@ -87,7 +89,7 @@ const llms = [
   `- [Sitemap](${SITE}/sitemap.xml)`,
   '',
 ].join('\n');
-await writeFile(join(ROOT, 'llms.txt'), llms);
+await writeFile(join(PUBLIC, 'llms.txt'), llms);
 
 // ── 4. JSON-LD product node (shared by index + product pages) ─
 const productNode = (p) => ({
@@ -154,7 +156,7 @@ const indexMeta = [
   `  <meta name="twitter:title" content="${STORE_NAME}" />`,
   `  <script type="application/ld+json">\n${JSON.stringify(graph, null, 2)}\n  </script>`,
 ].join('\n');
-await injectSeo(join(ROOT, 'index.html'), indexMeta);
+await injectSeo(join(PUBLIC, 'index.html'), indexMeta);
 
 // ── 5b. Inject a STATIC, VISIBLE catalog into index.html body ─
 // Agents like ChatGPT read the rendered body text and ignore <head>
@@ -179,11 +181,11 @@ const catalogHtml = products
       </article>`
   )
   .join('\n');
-await injectBetween(join(ROOT, 'index.html'), '<!-- SEO:CATALOG:START', '<!-- SEO:CATALOG:END -->', catalogHtml);
+await injectBetween(join(PUBLIC, 'index.html'), '<!-- SEO:CATALOG:START', '<!-- SEO:CATALOG:END -->', catalogHtml);
 
 // ── 6. Generate STATIC per-product pages ─────────────────────
 for (const p of products) {
-  await writeFile(join(ROOT, productFile(p)), renderProductPage(p));
+  await writeFile(join(PUBLIC, productFile(p)), renderProductPage(p));
 }
 
 console.log('✓ robots.txt');

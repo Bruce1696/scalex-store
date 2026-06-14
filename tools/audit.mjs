@@ -13,8 +13,8 @@
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import Discover from '../discover-engine.js';
-import Commerce from '../commerce-core.js';
+import Discover from '../src/shared/discover-engine.js';
+import Commerce from '../src/shared/commerce-core.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -35,8 +35,9 @@ const GROUP_LAYER = {
   'Agent Workflow': 3,
 };
 
+// Local audit reads the built publish dir (what actually gets deployed).
 async function readSafe(name) {
-  try { return await readFile(join(ROOT, name), 'utf8'); } catch { return ''; }
+  try { return await readFile(join(ROOT, 'public', name), 'utf8'); } catch { return ''; }
 }
 async function fetchSafe(url) {
   try {
